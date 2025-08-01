@@ -23,15 +23,25 @@ Tools ⇒ Camera Calibration
 
 This will open the window shown in Figure 2. As you can see, Metashape automatically detected the camera type from the metadata of the images and filled out some of the settings such as the focal length. Given that the GoPro camera we used to collect the data for this tutorial has a very wide view angle, it is recommended to switch the camera type to "fisheye" as highlighted in red in Figure 2.
 
+![Figure 2](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_02.png)
+
 Another global setting that should be adjusted in some cases at the beginning of the processing work-flow can be reached by performing a right-click on the Chunk 1 section in the workspace and then select "Reference Settings". In the window that pops up you can let Metashape know more about how precise the geolocation information that you provide to the software is. In our case, the GoPro images may have some GPS information included in the images. However, this GPS information below the canopy of a forest may not be very accurate. So the camera accuracy of 10 m which is standard setting seems reasonable. In case you used some markers (targets which are clearly visible in some images and where you know the location with very high reliability) during your survey, you can also set how accurate these are. Be careful, the standard setting is 0.5 cm. This is a very high accuracy that you might not even reach with a dGPS in forests. If you know that you use markers and that your markers have a lower accuracy, you should change this setting. Similarly, the marker accuracy on the right part of the window refers to the how accurate you have set manual markers in the image. Again - here an accuracy of half a pixel is very high and you might need to adjust this value. In our case we will not use any markers for now and hence do not need to make and changes.
+
+![Figure 3](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_03.png)
+![Figure 4](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_04.png)
 
 Once we have completed these two steps, we are ready to start with the initial step of the processing pipeline of Metashape, which is aligning the images.
 
 
 #### Aligning images
 
-To align the images, we perform a right-click on the Chunk 1 section in the workspace and then select "Process ⇒ Align Photos" as shown in Figure 3. This will open up a new window. Here, we will now intentionally deviate from the standard settings of Metashape.
-As shown in Figure 4, we will set both the **Key point limit** and the **Tie point limit** to 0. This means that Metashape is allowed to search for an unlimited amount of key point and tie points. This will be important for the next step that will be explained with more details below.
+To align the images, we perform a right-click on the Chunk 1 section in the workspace and then select "Process ⇒ Align Photos" as shown in Figure 5. This will open up a new window. Here, we will now intentionally deviate from the standard settings of Metashape.
+
+![Figure 5](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_05.png)
+
+As shown in Figure 6, we will set both the **Key point limit** and the **Tie point limit** to 0. This means that Metashape is allowed to search for an unlimited amount of key point and tie points. This will be important for the next step that will be explained with more details below.
+
+![Figure 6](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_06.png)
 
 In short: We try to come up with a very high number of potential points with which we can align the images but will then later gradually select only those points which are of high quality. This normally leads to better alignment results than the automated procedure offered by Metashape.
 
@@ -52,19 +62,30 @@ The next step we now conduct is to optimize the camera alignment. This is again 
 
 To get started we right-click on the Chunk 1 section in the Workspace and select "Process ⇒ Optimize Camera Alignment" as shown in Figure 7. Then a new window open as shown in Figure 8. Here, we can now define which parameters we try to optimize. Generally, the settings shown here at the moment work quite well but to explain the complete work-flow we for now select all parameters, that is, we also check the currently empty boxed **"Fitk4"**, **"Fitb1**" and **"Fitb2"**. We then press **"ok".**
 
+![Figure 7](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_07.png)
+![Figure 8](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_08.png)
+
 Now we have to verify whether it was actually necessary to activate these additional parameter or whether they show high co-correlation with the other paramters. To verify this, we select:
 
 Tools ⇒ Camera Calibration
 
 the same window we already know from the first part of this Tutorial when we adjusted the setting to a fisheye camera pops up. If we click on the "Adjusted" section as shown in Figure 9, we can see that after running the camera calibration, these fields have been filled and all the parameters now have values. This would have not been the case at the beginning of the tutorial.
 
+![Figure 9](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_09.png)
+
 However, we now want to check whether tis ireally necessary to activate all of the parameters.
 
 For this we now perform a right click on the "Hero9 Black (3mm)" camera on the top left and select "Distortion plots" as shown in Figure 10. In the new window that pops up as shown in Figure 11, we then we select the section "Correlations" which will show a window that looks as shown in Figure 12. 
 
+![Figure 10](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_10.png)
+![Figure 11](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_11.png)
+![Figure 12](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_12.png)
+
 If all parameters would contribute to the camera optimization, the correlations between the parameters should be below a certain user-defined threshold. In our case we can see that the l4 and k3 parameters are highly correlated (also with k2) and hence it makes no sense to keep them.
 
 We therefore re-run the steps above but deactivate k4 and then after rechecking, I decided to also deactivate k3. which leads me to the final correlations view after the camera optimization as shown in Figure 13.
+
+![Figure 13](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_13.png)
 
 Once we have found a good subset of parameters that we want to use during the camera optimization procedure, we now start gradually decreasing the tiepoints that we have identified during the alignment step to just remain the highest quality time points before we create the dense point cloud.
 
