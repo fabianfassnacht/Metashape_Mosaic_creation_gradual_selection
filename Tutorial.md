@@ -15,6 +15,8 @@ Now let's start with the processing.
 We first start AGISOFT Metashape from the start menu of the computer which should lead to the situation as shown in Figure 1. The easiest way to load the images is to drag & drop all the images into the "Chunk" area in the workspace as marked in red in Figure 1.
 After this, the software should display  "**Chunk 1 (449 images**)" in workspace section.
 
+![Figure 1](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_01.png)
+
 Before we now start with the processing of the images, we need to make one important modification to the camera settings for the current project. For this we select:
 
 Tools ⇒ Camera Calibration
