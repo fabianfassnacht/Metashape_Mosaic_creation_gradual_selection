@@ -41,7 +41,8 @@ Let's start by renaming our first chunk. Right-click on "Chunk 1" and select **R
 
 ![Figure 1](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_01.png)
 
-Figure 1: Situation after loading the images.
+**Figure 1: Situation after loading the images.**
+
 
 
 **Camera calibration settings**
