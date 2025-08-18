@@ -56,7 +56,7 @@ Before aligning, we must tell Metashape about the specific characteristics of ou
 
 ![Figure 2](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_02.png)
 
-Figure 2: Metashape will have pre-filled parameters like focal length (f) and pixel size from the metadata. The other interior orientation parameters (IOPs), such as principal point offset (cx​, cy​) and distortion coefficients (k1​,k2​,k3​,k4​,p1​,p2​,b1​,b2​), will be empty under the "Initial" tab. These will be calculated during the alignment and optimization steps and will appear under the "Adjusted" tab.
+**Figure 2: Metashape will have pre-filled parameters like focal length (f) and pixel size from the metadata. The other interior orientation parameters (IOPs), such as principal point offset (cx​, cy​) and distortion coefficients (k1​,k2​,k3​,k4​,p1​,p2​,b1​,b2​), will be empty under the "Initial" tab. These will be calculated during the alignment and optimization steps and will appear under the "Adjusted" tab.**
 
 
 
@@ -68,7 +68,7 @@ Here, we define the coordinate systems and accuracy of our input data. This is c
 
 ![Figure 3](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_03.png)
 
-Figure 3: The reference setting provides very important information.
+**Figure 3: The reference setting provides very important information.**
 
 
 
@@ -78,7 +78,7 @@ Figure 3: The reference setting provides very important information.
 
 ![Figure 4](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_04.png)
 
-Figure 4: The reference setting menu
+**Figure 4: The reference setting menu**
 
 
 
@@ -92,7 +92,7 @@ Image alignment is the foundational step where Metashape finds matching features
 
 ![Figure 5](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_05.png)
 
-Figure 5: How to align images.
+**Figure 5: How to align images.**
 
 
 
@@ -113,7 +113,7 @@ By setting the limits to 0, we prevent Metashape from prematurely discarding pot
 
 ![Figure 6](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_06.png)
 
-Figure 6: The suggested settings for the alignment.
+**Figure 6: The suggested settings for the alignment.**
 
 
 
@@ -147,7 +147,7 @@ Before using automated tools, use your knowledge of the scene to perform a rough
 
 ![Figure 7](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_07.png)
 
-Figure 7: Manual refinement of the sparse point cloud by removing points located in marginal areas.
+**Figure 7: Manual refinement of the sparse point cloud by removing points located in marginal areas.**
 
 
 2.  **Filter by image count (structural removal):** Tie points that are only visible in two images are geometrically weak. Their 3D position is calculated with zero degrees of freedom, meaning their accuracy cannot be reliably estimated. While some of these points may be correct, this group also contains many points with large, undetectable errors. It's a standard best practice to remove them early in the process.
@@ -156,7 +156,7 @@ Go to **Model > Gradual Selection...**.
 
 ![Figure 8](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_08.png)
 
-Figure 8: Sparse point cloud refinement using gradual selection tool
+**Figure 8: Sparse point cloud refinement using gradual selection tool**
 
 
 Criterion: **Image count**.
@@ -165,7 +165,7 @@ Level: Set the value to **2**. This will select all points that are visible in t
 
 ![Figure 9](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_09.png)
 
-Figure 9: Gradual selection menu
+**Figure 9: Gradual selection menu**
 
 
 Click **OK**. The selected points will turn red.
@@ -176,7 +176,7 @@ After this initial cleaning, we are ready to optimize the camera alignment for t
 
 ![Figure 10](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_10.png)
 
-Figure 10: Camera optimization
+**Figure 10: Camera optimization**
 
 
 
@@ -223,7 +223,7 @@ Since this process can be quite boring to run manually, you can also automate th
 
 ![Figure 11](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_11.png)
 
-Figure 11: To use the developed GUI, first load it through the "Run Script" menu (a), after which a new tab will appear (b). The program consists of two main parts (c): the first includes checkboxes to select which parameters should be included in the calibration model (IOPs), and the second displays the target value for each criterion.
+**Figure 11: To use the developed GUI, first load it through the "Run Script" menu (a), after which a new tab will appear (b). The program consists of two main parts (c): the first includes checkboxes to select which parameters should be included in the calibration model (IOPs), and the second displays the target value for each criterion.**
 
 
 **Step 3: Final camera parameter check**
@@ -235,7 +235,7 @@ After you have finished cleaning the point cloud, it's wise to check for high co
 
 ![Figure 12](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_12.png)
 
-Figure 12: distortion details
+**Figure 12: distortion details**
 
 
 3.  Select the **Correlations** tab. You will see a matrix of values.
@@ -243,7 +243,7 @@ Figure 12: distortion details
 
 ![Figure 13](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_13.png)
 
-Figure 13: correlation matrix
+**Figure 13: correlation matrix**
 
 
 5.  If you find a high correlation, it means the parameters are redundant. You should disable the one with the higher error estimate. Go back to **Tools > Optimize Cameras...**, uncheck the box for that parameter (e.g., uncheck Fit k4), and run the optimization one final time.
@@ -252,7 +252,7 @@ The sparse point cloud is now clean, robust, and ready for building the dense cl
 
 ![Figure 14](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_14.png)
 
-Figure 14: Refined sparse point cloud
+**Figure 14: Refined sparse point cloud**
 
 
 
@@ -270,7 +270,7 @@ The dense cloud adds millions more points, creating the detailed foundation for 
 
 ![Figure 15](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_15.png)
 
-Figure 15: dense cloud
+**Figure 15: dense cloud**
 
 
 
@@ -282,7 +282,7 @@ Figure 15: dense cloud
 
 ![Figure 16](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_16.png)
 
-Figure 16: Point cloud settings
+**Figure 16: Point cloud settings**
 
 
 
@@ -290,7 +290,7 @@ Figure 16: Point cloud settings
 
 ![Figure 17](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_17.png)
 
-Figure 17: Dense point cloud
+**Figure 17: Dense point cloud**
 
 
 
@@ -303,7 +303,7 @@ The mesh creates a solid, continuous surface from the dense cloud, and the textu
 
 ![Figure 18](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_18.png)
 
-Figure 18: Build mesh menu
+**Figure 18: Build mesh menu**
 
 
 **Source data:** **Depth maps**.
@@ -316,7 +316,7 @@ Figure 18: Build mesh menu
 
 ![Figure 19](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_19.png)
 
-Figure 19: Mesh settings
+**Figure 19: Mesh settings**
 
 
 
@@ -325,7 +325,7 @@ Figure 19: Mesh settings
 
 ![Figure 20](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_20.png)
 
-Figure 20: Texture generation
+**Figure 20: Texture generation**
 
 
 
@@ -337,7 +337,7 @@ Figure 20: Texture generation
 
 ![Figure 21](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_21.png)
 
-Figure 21: texture settings
+**Figure 21: texture settings**
 
 
 
@@ -346,7 +346,7 @@ Figure 21: texture settings
 
 ![Figure 22](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_22.png)
 
-Figure 22: textured mesh
+**Figure 22: textured mesh**
 
 
 
@@ -362,7 +362,7 @@ The DSM is a raster map of elevation that includes the top of all features (cano
 
 ![Figure 23](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_23.png)
 
-Figure 23: DTM/DSM menu
+**Figure 23: DTM/DSM menu**
 
 
 
@@ -371,12 +371,12 @@ Figure 23: DTM/DSM menu
 
 ![Figure 24](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_24.png)
 
-Figure 24: DEM settings for DSM generation
+**Figure 24: DEM settings for DSM generation**
 
 
 ![Figure 25](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_25.png)
 
-Figure 25: DSM
+**Figure 25: DSM**
 
 
 
@@ -388,7 +388,7 @@ The DTM represents the bare-earth elevation. Creating it requires an extra step 
 
 ![Figure 26](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_26.png)
 
-Figure 26: point cloud classification to create DTM
+**Figure 26: point cloud classification to create DTM**
 
 
 2.  Now, go to **Build DEM...**.
@@ -397,7 +397,7 @@ Figure 26: point cloud classification to create DTM
 
 ![Figure 27](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_27.png)
 
-Figure 27: DSM
+**Figure 27: DSM**
 
 
 **Create Orthomosaic**
@@ -408,14 +408,14 @@ The orthomosaic is a geometrically-correct, top-down view of your model.
 
 ![Figure 28](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_28.png)
 
-Figure 28: Build Orthomosaic… menu
+**Figure 28: Build Orthomosaic… menu**
 
 
 2.  Select the surface you want to drape it on (usually the **DEM/DTM** for terrain or **Mesh** for models).
 
 ![Figure 29](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_29.png)
 
-Figure 29: Orthomosaic settings
+**Figure 29: Orthomosaic settings**
 
 
 3.  Define the resolution and other parameters. Click **OK**.
@@ -423,7 +423,7 @@ Figure 29: Orthomosaic settings
 
 ![Figure 30](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_30.png)
 
-Figure 30: Orthomosaic
+**Figure 30: Orthomosaic**
 
 
 
@@ -435,7 +435,7 @@ Finally, document your work. A report is essential for quality control and for s
 
 ![Figure 31](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_31.png)
 
-Figure 31: Creating the report of the project
+**Figure 31: Creating the report of the project**
 
 2.  Choose a file path and click **Save**.
 
