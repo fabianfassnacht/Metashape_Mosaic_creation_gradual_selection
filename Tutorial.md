@@ -55,10 +55,6 @@ Before aligning, we must tell Metashape about the specific characteristics of ou
 
 ![Figure 2](https://github.com/fabianfassnacht/Metashape_Mosaic_creation_gradual_selection/blob/main/Metashape_02.png)
 
-Figure 2
-
-
-
 Figure 2: Metashape will have pre-filled parameters like focal length (f) and pixel size from the metadata. The other interior orientation parameters (IOPs), such as principal point offset (cx​, cy​) and distortion coefficients (k1​,k2​,k3​,k4​,p1​,p2​,b1​,b2​), will be empty under the "Initial" tab. These will be calculated during the alignment and optimization steps and will appear under the "Adjusted" tab.
 
 
