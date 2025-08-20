@@ -1,7 +1,7 @@
 
 ### Mosaicing under canopy GoPro images in Agisoft Metashape  
 
-Author of Tutorial: Arvin Fakhri
+Author of Tutorial: The tutorial was jointly created by Arvin Fakhri and Fabian Fassnacht. The contents base on the ample experiences of Arvin Fakhri in processing various types of photogrammetric datasets in forests.
 
 Dataset collected by: Miriam Herrmann, Marius Derenthal, Ephraim Schmidt-Riese
 
